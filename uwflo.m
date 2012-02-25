@@ -1,5 +1,5 @@
 function f = uwflo(wf)
-%%github test
+
 %% Global variables initialisation
 global windfarm
 global Dj

@@ -6,10 +6,12 @@ global Dj
 global alpha
 global U0
 global micro
-global newpower
+global theta
+global f1
+global k
 
 %% Variables
-theta = 0; %Angle of wind
+% theta = 3.14; %Angle of wind
 N = numel(wf)/2; % Number of turbines
 M = zeros(N,N);
 power = zeros(1,N);
@@ -24,7 +26,7 @@ for i = 1:1:N
      
 end 
 
-micro = sortrows(micro,[2 1]);
+% micro = sortrows(micro,[2 1]);
 Yi = micro(:,1);
 Xi = micro(:,2);
 x = cos(theta)*Xi - sin(theta)*Yi;
@@ -73,10 +75,11 @@ end
 
 
 %% Objective function
-    newpower = sum(power);
+    delta = (sum(power)-f1(k));
+    newpower = f1(k) + delta;
     mov = abs(micro - windfarm);
     xmov = sum(mov(:,1));
     ymov = sum(mov(:,2));
     summov = xmov + ymov;
-    f = summov/(newpower)^2;
+    f = 1/(newpower);
 end

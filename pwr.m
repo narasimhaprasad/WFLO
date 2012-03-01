@@ -1,37 +1,30 @@
-function f = micro(wf)
+function [f,f1] = pwr(wf)
 
 %% Global variables initialisation
 global windfarm
 global Dj
+% global cost
 global alpha
 global U0
-global micro
-% global newpower
 global theta
-global f1
+
 
 %% Variables
 % theta = 3.14; %Angle of wind
-N = numel(wf)/2; % Number of turbines
+C = numel(wf);
+cost = C*((2/3)+((1/3)*exp((-0.00174)*(C^2))));
+N = numel(wf); % Number of turbines
 M = zeros(N,N);
-power = zeros(1,N);
 chk = zeros(N-1,N);
+power = zeros(1,N);
 
-%% Micro sitting co-ordinates
-for i = 1:1:N 
-    
-    j = (2 * i) - 1; 
-    micro(i,1) = wf(j); 
-    micro(i,2) = wf(j+1); 
-     
-end 
-
-% micro = sortrows(micro,[2 1]);
-Yi = micro(:,1);
-Xi = micro(:,2);
+%% Wind Farm co-ordinate
+coord = gridnumber(wf); %grid co-ordinates of turbines
+Yi = coord(:,1);
+Xi = coord(:,2);
 x = cos(theta)*Xi - sin(theta)*Yi;
 y = sin(theta)*Xi + cos(theta)*Yi;
-micro = [x y];
+windfarm = [x y];
 
 %% Wake matrix
 for i = 1:1:N-1
@@ -66,20 +59,15 @@ for l = 1:1:N
     if isempty(r) == 1
         U = U0;
     else
-        U = calcvel_micro(r,l);
+        U = calcvel(r,l);
     end
     end
     
      power(l) = 0.3*(U^3);
 end
 
-
 %% Objective function
-    delta = (sum(power)-f1(1));
-    newpower = f1(1) + delta;
-    mov = abs(micro - windfarm);
-    xmov = sum(mov(:,1));
-    ymov = sum(mov(:,2));
-    summov = xmov + ymov;
-    f = 1/(newpower);
+    totalpower = sum(power);
+    f1 = cost/totalpower;
+    f = totalpower;
 end

@@ -12,10 +12,10 @@ ub = zeros(1,2*j);
     k = 1;
     for i =1:2:2*j
 
-        lb(1,i) = xlb(k);
-        lb(1,i+1) = ylb(k);
-        ub(1,i) = xub(k);
-        ub(1,i+1) = yub(k);
+        lb(1,i) = ylb(k);
+        lb(1,i+1) = xlb(k);
+        ub(1,i) = yub(k);
+        ub(1,i+1) = xub(k);
         k = k+1;
         
     end

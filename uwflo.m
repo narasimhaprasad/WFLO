@@ -8,7 +8,7 @@ global alpha
 global U0
 
 %% Variables
-theta= 0; %Angle of wind
+theta = 0; %Angle of wind
 N = numel(wf); % Number of turbines
 M = zeros(N,N);
 chk = zeros(N-1,N);
@@ -65,4 +65,5 @@ end
 %% Objective function
     totalpower = sum(power);
     f = cost/totalpower;
+   
 end

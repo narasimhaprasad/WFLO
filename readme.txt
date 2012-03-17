@@ -4,7 +4,8 @@ calcvel.m : Calculate velocity at any point in non-micro grid.
 calcvel_grid.m : Calculate velovity at any point in micro grid.
 circcirc.m : Calculate intersection of two circles.
 gridnumber.m : Calculte x and y position based on grid number.
-ITHS.m : Optimization algorithm(Harmony search).
+ITHS.m : Optimization algorithm(Harmony search) for micro-grid.
+modIths.m :Optmization algorithm(Harmony search).
 layout.m : Generate a unified matrix of x and y co-ordinates, along with mapping function.
 main.m : Main program for micro-sitting evaluation.
 matlab-servo.m : Matlab interface for interaction with two servo motors.
@@ -16,3 +17,4 @@ uwflo.m : Program containing objective function for non-micro sitting grid.
 arduino.m :Arduino I/O library for matlab(Property of Mathworks.inc).
 arduino-uwflo.ino : Arduino program to interface with matlab. 
 
+Acknowledgement to Parikshit Yadav for ITHS.m and modIths.m 

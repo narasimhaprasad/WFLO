@@ -1,4 +1,4 @@
-function [MAXITER,solu,xbest,f,fsol] = ITHS(N,umin,umax,object)
+function [MAXITER,solu,xbest,f,fsol] = modIths(N,umin,umax,object)
 % object = @uwflo;
 
 tic;
@@ -7,7 +7,7 @@ MS=10;
 MCR=0.99;
 PARMI=0;
 PARM=1;
-MAXITER=100;
+MAXITER=2000;
 %--------------------END OF INITIALIZATION----------------------------------
 MAXT=1;
 %%
@@ -18,8 +18,7 @@ for t=1:1:1
     for trial=1:MAXT
         for hms=1:1
             for popu=1:1
-                i=1;
-                HM(1,1:N)=umin+50;
+                i=0;
                 while( i < MS(hms))
                     i=i+1;
                     %FOR RANDOMLY GENERATING THE N variables

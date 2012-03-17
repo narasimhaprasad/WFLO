@@ -6,15 +6,9 @@ global Dj
 global alpha
 global U0
 global micro
-<<<<<<< HEAD
 global theta
 global f1
 global k
-=======
-% global newpower
-global theta
-global f1
->>>>>>> origin/master
 
 %% Variables
 % theta = 3.14; %Angle of wind
@@ -81,13 +75,8 @@ end
 
 
 %% Objective function
-<<<<<<< HEAD
     delta = (sum(power)-f1(k));
     newpower = f1(k) + delta;
-=======
-    delta = (sum(power)-f1(1));
-    newpower = f1(1) + delta;
->>>>>>> origin/master
     mov = abs(micro - windfarm);
     xmov = sum(mov(:,1));
     ymov = sum(mov(:,2));

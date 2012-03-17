@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 function [f,f1] = pwr(wf,x)
-=======
-function [f,f1] = pwr(wf)
->>>>>>> origin/master
 
 %% Global variables initialisation
 global windfarm
@@ -11,24 +7,15 @@ global Dj
 global alpha
 global U0
 global theta
-<<<<<<< HEAD
 global micro
-=======
->>>>>>> origin/master
 
 
 %% Variables
 % theta = 3.14; %Angle of wind
-<<<<<<< HEAD
 
 if x == 1
 N = numel(wf); % Number of turbines
 cost = N*((2/3)+((1/3)*exp((-0.00174)*(N^2))));
-=======
-C = numel(wf);
-cost = C*((2/3)+((1/3)*exp((-0.00174)*(C^2))));
-N = numel(wf); % Number of turbines
->>>>>>> origin/master
 M = zeros(N,N);
 chk = zeros(N-1,N);
 power = zeros(1,N);
@@ -85,7 +72,6 @@ end
     totalpower = sum(power);
     f1 = cost/totalpower;
     f = totalpower;
-<<<<<<< HEAD
     
 elseif x == 2
 %% Variables
@@ -159,6 +145,3 @@ end
     f1 = cost/totalpower;
     f = totalpower;
 end
-=======
-end
->>>>>>> origin/master

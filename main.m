@@ -2,8 +2,6 @@ close all
 clear
 clc
 
-
-
 global Dj
 global alpha
 global a
